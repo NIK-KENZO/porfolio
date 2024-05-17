@@ -5,86 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Portfolio de Tchouangue Kameni Nik Kenzo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+
+        .nav-links {
+            position: fixed;
+            top: 1em;
+            right: 1em;
+            z-index: 1001;
+        }
+
+        .nav-links a {
+            color: #3D30A2;
+            margin: 0 10px;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #B05EFF;
+        }
+
+        section {
+            padding: 4em 2em 2em;
+            background-color: white;
+            margin: 5em 2em 1em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .section-icon {
+            position: absolute;
+             top: -10px;
+            left: 20px;
+            font-size: 2em;
+            color: #B05EFF;
+        }
+
+        h2, h3 {
+            color: #3D30A2; 
+        }
+        h1{
+            color: #B05EFF;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 0.5em 0;
+        }
+
+        footer {
+            background-color: #B05EFF; 
+            color: white;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #3D30A2;
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<style>
-    body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
-}
-
-header {
-    background-color: #3D30A2; 
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-}
-
-section {
-    padding: 2em;
-    background-color: white;
-    margin: 1em 2em;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    
-}
-
-h1, h2, h3 {
-    color: #3D30A2; 
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin: 0.5em 0;
-}
-
-footer {
-    background-color: #B05EFF; 
-    color: white;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    margin-top: 2em;
-}
-.social-icons {
-    margin-top: 1em;
-}
-
-.social-icons a {
-    color: white;
-    margin: 0 10px;
-    font-size: 1.5em;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #3D30A2; /* Utilisation de la couleur 1 pour le survol */
-}
-</style>
 <body>
-    <center>
-    <header>
-        <h1>Tchouangue Kameni Nik Kenzo</h1>
-    </header>
-    <section id="about">
+        <div class="nav-links">
+            <a href="#about">À Propos</a>
+            <a href="#skills">Compétences</a>
+            <a href="#experience">Expérience</a>
+            <a href="#education">Formation</a>
+            <a href="#certifications">Certifications</a>
+        </div>
+    
+    <section id="about" class="animate">
+        <i class="fas fa-user section-icon"></i>
         <h2>À Propos de Moi</h2>
-        <p>Adresse: Ngaoundéré - Cameoun</p>
-        <p>Numéro de téléphone: +237 655933625</p>
-        <p>Email: <a href="mailto:nikkenzo4@gmail.com">nikkenzo4@gmail.com</a></p>
-        
+        <center>
+        <h1>Tchouangue Kameni Nik Kenzo</h1>
+        <p><i class="fas fa-location-arrow "></i> Ngaoundéré - Cameroun</p>
+        <p><i class="fas fa-phone "></i>+237 655933625</p>
+        <p><i class="fas fa-envelope "></i> <a href="mailto:nikkenzo4@gmail.com">nikkenzo4@gmail.com</a></p>
         <p>
             Informaticien expérimenté avec une solide compréhension des principes informatiques, des technologies et des méthodologies de développement logiciel. Maîtrise des langages de programmation, des systèmes d'exploitation et des outils de développement. Capacité avérée à travailler individuellement et au sein d'une équipe pour concevoir, développer, tester et mettre en œuvre des solutions informatiques efficaces.
         </p>
+    </center>
     </section>
-</center>
-    <section id="skills">
+    <section id="skills" class="animate">
+        <i class="fas fa-laptop-code section-icon"></i>
         <h2>Compétences</h2>
         <ul>
             <li>Langages de programmation (Java, Python, C++, JavaScript, etc.)</li>
@@ -97,7 +135,8 @@ footer {
             <li>Travail d'équipe et communication</li>
         </ul>
     </section>
-    <section id="experience">
+    <section id="experience" class="animate">
+        <i class="fas fa-briefcase section-icon"></i>
         <h2>Expérience Professionnelle</h2>
         <div class="job">
             <h3>Informaticien, ABC Corporation, 2018-Présent</h3>
@@ -116,29 +155,54 @@ footer {
             </ul>
         </div>
     </section>
-    <section id="education">
+    <section id="education" class="animate">
+        <i class="fas fa-graduation-cap section-icon"></i>
         <h2>Formation</h2>
         <ul>
             <li>Master en informatique, Université de Ngaoundéré-Cameroun, 2016</li>
             <li>Licence en informatique, Université de Ngaoundéré-Cameroun, 2014</li>
         </ul>
     </section>
-    <section id="certifications">
+    <section id="certifications" class="animate">
+        <i class="fas fa-certificate section-icon"></i>
         <h2>Certifications</h2>
         <ul>
-            <li>Certification en Java ,Oracle</li>
-            <li>Certification en gestion de projet, SCRUM PROJECT </li>
+            <li>Certification en Java, Oracle</li>
+            <li>Certification en gestion de projet, SCRUM PROJECT</li>
         </ul>
     </section>
     <footer>
-        <p>&copy; 2024 Tchouangue Kameni Nik Kenzo. Tous droits réservés.</p>
-        <div class="social-icons">
+        <p>&copy; 2024 Tchouangue Kameni Nik Kenzo. Tous droits réservés.  <span class="social-icons">
             <a href="https://cm.linkedin.com/in/tchouangue-kameni-nik-kenzo-25b92a309" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/NIK-KENZO" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-
+        </span></p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.animate');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
-
-
 </html>
