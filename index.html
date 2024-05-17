@@ -14,16 +14,29 @@
             color: #333;
         }
 
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3D30A2;
+            color: white;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-title {
+            font-size: 1.5em;
+        }
 
         .nav-links {
-            position: fixed;
-            top: 1em;
-            right: 1em;
-            z-index: 1001;
+            display: flex;
         }
 
         .nav-links a {
-            color: #3D30A2;
+            color: white;
             margin: 0 10px;
             font-size: 1.2em;
             text-decoration: none;
@@ -32,6 +45,12 @@
 
         .nav-links a:hover {
             color: #B05EFF;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
         }
 
         section {
@@ -45,16 +64,17 @@
 
         .section-icon {
             position: absolute;
-             top: -10px;
+            top: -10px;
             left: 20px;
             font-size: 2em;
             color: #B05EFF;
         }
 
         h2, h3 {
-            color: #3D30A2; 
+            color: #3D30A2;
         }
-        h1{
+
+        h1 {
             color: #B05EFF;
         }
 
@@ -68,7 +88,7 @@
         }
 
         footer {
-            background-color: #B05EFF; 
+            background-color: #B05EFF;
             color: white;
             text-align: center;
             position: fixed;
@@ -97,29 +117,54 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #3D30A2;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
-        <div class="nav-links">
+    <header class="nav-container">
+        <!-- <div class="nav-title">Portfolio</div> -->
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        <nav class="nav-links">
             <a href="#about">À Propos</a>
             <a href="#skills">Compétences</a>
             <a href="#experience">Expérience</a>
             <a href="#education">Formation</a>
             <a href="#certifications">Certifications</a>
-        </div>
-    
+        </nav>
+    </header>
+
     <section id="about" class="animate">
         <i class="fas fa-user section-icon"></i>
         <h2>À Propos de Moi</h2>
         <center>
-        <h1>Tchouangue Kameni Nik Kenzo</h1>
-        <p><i class="fas fa-location-arrow "></i> Ngaoundéré - Cameroun</p>
-        <p><i class="fas fa-phone "></i>+237 655933625</p>
-        <p><i class="fas fa-envelope "></i> <a href="mailto:nikkenzo4@gmail.com">nikkenzo4@gmail.com</a></p>
-        <p>
-            Informaticien expérimenté avec une solide compréhension des principes informatiques, des technologies et des méthodologies de développement logiciel. Maîtrise des langages de programmation, des systèmes d'exploitation et des outils de développement. Capacité avérée à travailler individuellement et au sein d'une équipe pour concevoir, développer, tester et mettre en œuvre des solutions informatiques efficaces.
+        <h1>TCHOUANGUE KAMENI NIK KENZO</h1>
+        <p><i class="fas fa-location-arrow"></i> Ngaoundéré - Cameroun</p>
+        <p><i class="fas fa-phone"></i> +237 655933625</p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:nikkenzo4@gmail.com">nikkenzo4@gmail.com</a></p>
+        <p class="write">
+            
         </p>
-    </center>
+        </center>
     </section>
     <section id="skills" class="animate">
         <i class="fas fa-laptop-code section-icon"></i>
@@ -172,13 +217,33 @@
         </ul>
     </section>
     <footer>
-        <p>&copy; 2024 Tchouangue Kameni Nik Kenzo. Tous droits réservés.  <span class="social-icons">
+        <p>&copy; 2024 Tchouangue Kameni Nik Kenzo. Tous droits réservés. <span class="social-icons">
             <a href="https://cm.linkedin.com/in/tchouangue-kameni-nik-kenzo-25b92a309" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/NIK-KENZO" target="_blank"><i class="fab fa-github"></i></a>
         </span></p>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
+            const writeText = "Informaticien expérimenté avec une solide compréhension des principes informatiques, des technologies et des méthodologies de développement logiciel. Maîtrise des langages de programmation, des systèmes d'exploitation et des outils de développement. Capacité avérée à travailler individuellement et au sein d'une équipe pour concevoir, développer, tester et mettre en œuvre des solutions informatiques efficaces.";
+    const writeElement = document.querySelector('.write');
+    let index = 0;
+
+    function writeEffect() {
+        if (index < writeText.length) {
+            writeElement.innerHTML += writeText.charAt(index);
+            index++;
+            setTimeout(writeEffect, 50); // Vitesse de saisie en millisecondes
+        } else {
+            setTimeout(() => {
+                writeElement.innerHTML = '';
+                index = 0;
+                writeEffect();
+            }, 60000); // 1 minute en millisecondes
+        }
+    }
+
+    writeEffect();
             const sections = document.querySelectorAll('.animate');
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
@@ -192,15 +257,23 @@
             sections.forEach(section => {
                 observer.observe(section);
             });
-        });
 
-        document.querySelectorAll('.nav-links a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                document.getElementById(targetId).scrollIntoView({
-                    behavior: 'smooth'
+            // Smooth scroll for navigation links
+            document.querySelectorAll('.nav-links a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
+            });
+
+            // Toggle mobile menu
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
             });
         });
     </script>
